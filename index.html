@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 沖繩夏日家族自駕之旅 - 行程首頁</title>
+    <title>2026 沖繩夏日家族自駕之旅 - 完整手冊</title>
     <style>
         :root {
             --primary: #0A3663;
@@ -27,152 +27,306 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
             background-color: var(--bg-main);
             color: var(--text-dark);
-            line-height: 1.6;
-            padding-bottom: 60px;
+            line-height: 1.5;
+            padding-bottom: 40px;
             width: 100%;
             overflow-x: hidden;
         }
 
-        /* 頂部海島深藍區 */
         .hero {
             background: linear-gradient(135deg, #0A3663 0%, #031B33 100%);
             color: white;
             text-align: center;
-            padding: 45px 15px 40px 15px;
+            padding: 25px 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: 1.5px;
+            font-size: 1.6rem;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             opacity: 0.85;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
 
-        /* 日期區間標籤 */
         .date-badge {
             display: inline-block;
             background-color: var(--secondary);
             color: white;
-            padding: 8px 24px;
+            padding: 4px 14px;
             border-radius: 50px;
-            font-size: 1.15rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            margin-bottom: 25px; /* 與下方倒數拉開距離 */
         }
 
-        /* 移到下方且放大的倒數計時區 */
-        .countdown-container {
-            display: block;
-            margin: 0 auto;
-            max-width: 320px;
-        }
-
-        .countdown-text {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #FFFDEB;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* 超大倒數數字樣式 */
-        #countdown-days {
-            font-size: 5rem; /* 超特大字體 */
-            color: #FDE68A; /* 金黃色 */
-            font-weight: 900;
-            line-height: 1.1;
-            display: block;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            margin: 5px 0;
-        }
-
-        /* 主要內容區（看板） */
         .container {
             width: 100%;
-            max-width: 760px;
-            margin: 35px auto;
-            padding: 0 20px;
+            max-width: 800px;
+            margin: 15px auto;
+            padding: 0 10px;
         }
 
-        .main-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .notice-card {
-            background-color: #FFFBEB;
-            border: 1px solid #FDE68A;
-            border-radius: 12px;
-            padding: 22px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-
-        .notice-subtitle {
+        .section-title {
             font-size: 1.15rem;
+            color: var(--primary);
+            margin: 20px 0 10px 0;
+            padding-left: 8px;
+            border-left: 4px solid var(--primary);
+            font-weight: 700;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+        }
+
+        .flight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .flight-header {
+            background-color: #F1F5F9;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flight-detail p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .flight-detail strong {
+            color: var(--text-dark);
+        }
+
+        .pnr-box {
+            background-color: #FFFBEB;
+            border: 1px solid #FEF3C7;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .pnr-title {
             font-weight: 700;
             color: #B45309;
-            margin-bottom: 16px;
+            margin-bottom: 4px;
+            border-bottom: 1px dashed #FDE68A;
+            padding-bottom: 4px;
+        }
+
+        .pnr-row {
             display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+
+        .transport-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .guide-box {
+            background-color: #F0FDFA;
+            border: 1px solid #CCFBF1;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        .guide-box h4 {
+            color: #0F766E;
+            margin-bottom: 4px;
+        }
+
+        .tabs {
+            display: flex;
+            background: #E2E8F0;
+            padding: 4px;
+            border-radius: 8px;
+            margin: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .tab-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-light);
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: block;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .day-section {
+            display: none;
+        }
+        #day1 {
+            display: block;
+        }
+
+        .day-header-nav {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-        }
-
-        .notice-list {
-            list-style: none;
-        }
-
-        .notice-item {
-            font-size: 1.05rem;
-            color: #78350F;
             margin-bottom: 12px;
-            line-height: 1.6;
-            padding-left: 16px;
+            gap: 10px;
+        }
+
+        .day-header-nav h2 {
+            font-size: 1.05rem;
+            color: var(--primary);
+        }
+
+        .item-row {
+            display: flex;
+            margin-bottom: 12px;
             position: relative;
         }
 
-        .notice-item:last-child {
-            margin-bottom: 0;
+        .item-time {
+            width: 50px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.88rem;
+            padding-top: 2px;
+            flex-shrink: 0;
         }
 
-        .notice-item::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #D97706;
-            font-weight: bold;
+        .item-body {
+            flex: 1;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            min-width: 0;
         }
 
-        /* 手機版 RWD 完美適配 */
+        .item-body h3 {
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+            color: var(--text-dark);
+        }
+
+        .item-body p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-bottom: 6px;
+        }
+
+        .address-text {
+            background: #F8FAFC;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #475569;
+            margin-bottom: 6px;
+            word-break: break-all;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-map { background-color: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+        .btn-all-map { background-color: #2563EB; color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; text-decoration: none; font-weight: bold; flex-shrink: 0;}
+        .btn-link { background-color: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+
+        .warning-card {
+            background-color: #FEF2F2;
+            border: 1px solid #FEE2E2;
+            color: #991B1B;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+
+        .warning-card strong {
+            color: #DC2626;
+        }
+
+        .info-card {
+            background-color: #EFF6FF;
+            border: 1px solid #DBEAFE;
+            color: #1E40AF;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+
+        .info-card strong {
+            color: #2563EB;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 10px;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
         @media (max-width: 600px) {
-            .hero { padding: 35px 15px; }
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1.1rem; margin-bottom: 20px; }
-            .date-badge { font-size: 1.05rem; padding: 6px 20px; margin-bottom: 15px; width: 100%; max-width: 280px; }
-            
-            #countdown-days { font-size: 4rem; } /* 手機上稍微收斂到 4rem 避免溢出 */
-            .countdown-text { font-size: 1.05rem; }
-
-            .container { margin: 25px auto; padding: 0 15px; }
-            .main-title { font-size: 1.15rem; }
-            .notice-card { padding: 16px; }
-            .notice-subtitle { font-size: 1.05rem; margin-bottom: 12px; }
-            .notice-item { font-size: 0.95rem; margin-bottom: 10px; }
+            .hero h1 { font-size: 1.4rem; }
+            .hero p { font-size: 0.88rem; }
+            .section-title { font-size: 1.05rem; margin: 15px 0 8px 0; }
+            .flight-grid { grid-template-columns: 1fr; gap: 8px; }
+            .tab-btn { padding: 8px 0; font-size: 0.85rem; }
+            .day-header-nav { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .btn-all-map { width: 100%; text-align: center; justify-content: center; padding: 6px; }
+            .item-time { width: 45px; font-size: 0.8rem; }
+            .item-body h3 { font-size: 0.88rem; }
+            .item-body p { font-size: 0.8rem; }
+            .address-text { font-size: 0.72rem; }
+            .btn { font-size: 0.72rem; padding: 4px 6px; }
+            .pnr-box { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -180,50 +334,510 @@
 
     <div class="hero">
         <h1>沖繩夏日家族自駕之旅</h1>
-        <p>2026 家族旅遊行動數位手冊</p>
-        
-        <span class="date-badge">2026/07/24 — 2026/07/28</span>
-        
-        <div class="countdown-container">
-            <div class="countdown-text" id="countdown-box">
-                <span>🌴 距離出發還有</span>
-                <span id="countdown-days">--</span>
-                <span>天！</span>
-            </div>
-        </div>
+        <p>機票・住宿・交通・行程全資訊整合手冊</p>
+        <span class="date-badge">2026/07/24 — 2026/07/28 (五天四夜)</span>
     </div>
 
     <div class="container">
-        <div class="main-title">📌 團隊任務與重要提醒</div>
-        
-        <div class="notice-card">
-            <div class="notice-subtitle">🚨 餐廳預約進度看板</div>
-            <ul class="notice-list">
-                <li class="notice-item"><strong>【Day 2 午餐】百年古家 大家 阿古豬：</strong>預計於 <span style="color: #DC2626; font-weight: bold;">2026/07/04 (六)</span> 開放線上訂位，記得提早搶位。</li>
-                <li class="notice-item"><strong>【Day 4 午餐】浜の家海鮮料理：</strong><span style="color: #16A34A; font-weight: bold;">已完成預約！</span> (12:00 / 9位 / 訂位大名：Wang桑)。</li>
-                <li class="notice-item"><strong>【自駕提醒】</strong>出發前請主承租人 <strong>WANG TSUNGPING</strong> 先生/小姐再次確認帶齊「台灣駕照正本」與「日文翻譯本」。</li>
-            </ul>
+
+        <div class="section-title">✈️ 航班訂位資訊</div>
+        <div class="card">
+            <div class="flight-grid">
+                <div>
+                    <div class="flight-header"><span>去程</span> <span>AirAsia 航空：FD230</span></div>
+                    <div class="flight-detail">
+                        <p>出發：<strong>桃園機場一航</strong></p>
+                        <p>時間：<strong>2026-07-24 (五) 13:30</strong></p>
+                        <p>抵達：<strong>那霸機場國際航廈</strong></p>
+                        <p>時間：<strong>2026-07-24 (五) 15:55</strong></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="flight-header"><span>回程</span> <span>AirAsia 航空：FD231</span></div>
+                    <div class="flight-detail">
+                        <p>出發：<strong>那霸機場國際航廈</strong></p>
+                        <p>時間：<strong>2026-07-28 (二) 16:55</strong></p>
+                        <p>抵達：<strong>桃園機場一航</strong></p>
+                        <p>時間：<strong>2026-07-28 (二) 17:30</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pnr-box">
+                <div class="pnr-title"># 機票訂位代號</div>
+                <div class="pnr-row"><span>▶ 爸 / 媽：</span><span>去程 <strong style="color:#B45309;">UF8TTG</strong> ｜ 回程 <strong style="color:#B45309;">UC3I2M</strong></span></div>
+                <div class="pnr-row"><span>▶ 宗民：</span><span>去程 <strong style="color:#B45309;">MDGUQW / OBG72M</strong> ｜ 回程 <strong style="color:#B45309;">EK5TKB / G9WCKS</strong></span></div>
+                <div class="pnr-row"><span>▶ 宗平：</span><span>去程 <strong style="color:#B45309;">FHGI4H</strong> ｜ 回程 <strong style="color:#B45309;">BH5UWK</strong></span></div>
+            </div>
         </div>
+
+        <div class="section-title">🏡 下榻住宿據點</div>
+        
+        <div class="card">
+            <div class="flight-header"><span>住宿 1（7/24 - 7/27）</span> <span>共 3 晚</span></div>
+            <div class="flight-detail" style="margin-top: 8px;">
+                <p style="font-size:0.92rem; font-weight:700; color:var(--text-dark);">リゾートヴィラ恩納ビーチ1 (包棟民宿)</p>
+                <div class="address-text">日本〒904-0401 Okinawa, Kunigami District, Onna, Nakama, 伊武部原2288-289</div>
+                <p style="font-size:0.82rem;">電話：<strong>+81 50-5846-7117</strong></p>
+                <div class="btn-group" style="margin-top: 8px;">
+                    <a href="https://maps.app.goo.gl/JAHv35E6QhjgiCZu5" target="_blank" class="btn btn-map">📍 Google Maps 位置導航</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="flight-header"><span>住宿 2（7/27 - 7/28）</span> <span>最後 1 晚</span></div>
+            <div class="flight-detail" style="margin-top: 8px;">
+                <p style="font-size:0.92rem; font-weight:700; color:var(--text-dark);">壺川美之加納 (飯店：四人房 x 3間)</p>
+                <div class="address-text">2 Chome-1-3 Tsubogawa, Naha, Okinawa 900-0025 日本</div>
+                <p style="font-size:0.82rem;">電話：<strong>+81 98-855-6061</strong></p>
+                <div class="btn-group" style="margin-top: 8px;">
+                    <a href="https://maps.app.goo.gl/SY7KhjfD1NBGpp5v9" target="_blank" class="btn btn-map">📍 Google Maps 位置導航</a>
+                    <a href="https://www.esther7.com/2019/11/chura-gana-house-tsubogawa.html?m=1&fbclid=IwY2xjawQ4NkdleHRuA2FlbQIxMABicmlkETFXVGVKbnVtVjdBNVVhM1Vlc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHlE-z3FSAhYTq6chLTq9tPitjimWCNpwP5nXaCXx2mMIZ22Zo0V15JcYk8Eq_aem_lgvEohpQjwhFXaVpT9HHgQ" target="_blank" class="btn btn-link">🔗 開箱介紹網誌網頁</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">🚗 Budget 租車專區</div>
+        <div class="card transport-info">
+            <p>預約主承租人：<strong>WANG TSUNGPING 先生/小姐</strong></p>
+            <p>預約編號：<strong>00010334833</strong></p>
+            <p>出發店舖：<strong>Budget汽車租賃-那霸機場店</strong></p>
+            <p>店舖地址：3-2 Senaga, Tomigusuku, Okinawa 901-0233 日本</p>
+            <p>店舖電話：<strong>+81 50-1722-1079</strong></p>
+            <p>接駁車時間：那霸機場接駁：08:30～20:00 ｜ 還車後末班機場接駁：～19:30</p>
+            
+            <div class="guide-box">
+                <h4>🚌 【免費接駁巴士搭乘指南】</h4>
+                <p>從那霸機場一樓大廳的 <strong>3 號出口</strong> 或 <strong>4 號出口</strong> 出來，直接穿過前方斑馬線。走到馬路中央的人行道。</p>
+                <p style="margin-top: 4px;">請朝著<strong>背對機場時的「最左側」</strong>前進，尋找標示<strong>『10號』</strong>月台，在最裡面即是 Budget Rent a Car 的專屬等候處，請在此等候免費接駁車。將有接駁車前來迎接。</p>
+                <p style="margin-top: 4px; font-size: 0.78rem; color: #0F766E; opacity: 0.8;">※ 那霸機場接駁首班車自 08:30 開始，實際可能依道路交通狀況調整。</p>
+            </div>
+        </div>
+
+        <div id="nav-anchor" class="section-title">📅 五天四夜行程計畫表</div>
+        <div class="tabs">
+            <a href="javascript:void(0);" id="tab1" class="tab-btn active" onclick="changeDay(1)">Day 1</a>
+            <a href="javascript:void(0);" id="tab2" class="tab-btn" onclick="changeDay(2)">Day 2</a>
+            <a href="javascript:void(0);" id="tab3" class="tab-btn" onclick="changeDay(3)">Day 3</a>
+            <a href="javascript:void(0);" id="tab4" class="tab-btn" onclick="changeDay(4)">Day 4</a>
+            <a href="javascript:void(0);" id="tab5" class="tab-btn" onclick="changeDay(5)">Day 5</a>
+        </div>
+
+        <div id="day1" class="day-section">
+            <div class="day-header-nav">
+                <h2>Day 1：7/24 (五) 抵達・取車・前往恩納民宿</h2>
+                <a href="https://maps.app.goo.gl/hedcSd3FFGG65jTr6" target="_blank" class="btn-all-map">🌐 本日全行程串聯導航</a>
+            </div>
+            
+            <div class="item-row">
+                <div class="item-time">15:55</div>
+                <div class="item-body">
+                    <h3>班機抵達那霸機場</h3>
+                    <p>預計約 17:30 順利完成出關並拿到行李。隨即前往機場一樓大廳 3 或 4 號出口，至中央人行道<strong>「10號標示最裡面」</strong>搭乘 Budget 租車專屬免費接駁車。</p>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">18:00</div>
+                <div class="item-body">
+                    <h3>第一站：Budget-那霸機場店辦理取車</h3>
+                    <div class="address-text">3-2 Senaga, Tomigusuku, Okinawa 901-0233 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/twXZdBqmBvvKYCH6A" target="_blank" class="btn btn-map">📍 租車店地圖</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">18:45</div>
+                <div class="item-body">
+                    <h3>第二站：晚餐 ➔ SAN-A 浦添西海岸 PARCO CITY</h3>
+                    <p>自取車店出發車程約 45 分鐘。大型海濱購物中心，備有眾多美食餐廳選擇。<strong>【注意：22:00 閉店】</strong></p>
+                    <div class="address-text">PARCO CITY, 3 Chome-1-1 Irijima, Urasoe, Okinawa 901-2123 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/KJburRfWguBv8DrBA" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">21:15</div>
+                <div class="item-body">
+                    <h3>第三站：進駐民宿 ➔ リゾートヴィラ恩納ビーチ1</h3>
+                    <p>自浦添商場出發開車車程約 1 小時。抵達前三晚的恩納海灘包棟別墅。</p>
+                    <div class="address-text">日本〒904-0401 Okinawa, Kunigami District, Onna, Nakama, 伊武部原2288-289</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/7AUNifEnYwxjicec8" target="_blank" class="btn btn-map">📍 民宿地圖與導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">晚間</div>
+                <div class="item-body">
+                    <h3>第四站：超市/超商購買隔日早餐</h3>
+                    <p>前往附近超商採買隔天家人的早餐與補給品。</p>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/broURwoJakPzDtyx9" target="_blank" class="btn btn-link">🏪 導航 Lawson</a>
+                        <a href="https://maps.app.goo.gl/iFJaoJ8XQocsRM8i7" target="_blank" class="btn btn-link">🏪 導航 7-11</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day2" class="day-section">
+            <div class="day-header-nav">
+                <h2>Day 2：7/25 (六) 美麗海水族館與北部秘境巡禮</h2>
+                <a href="https://maps.app.goo.gl/vZauvg711PDtty6s7" target="_blank" class="btn-all-map">🌐 本日全行程串聯導航</a>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">08:30</div>
+                <div class="item-body">
+                    <h3>第一站：沖繩美麗海水族館</h3>
+                    <p>由民宿出發車程約 50 分鐘。08:30 開門即刻入園，觀賞壯觀的「黑潮之海」鯨鯊大水槽。</p>
+                    <div class="address-text">424 Ishikawa, Motobu, Kunigami District, Okinawa 905-0206 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/fCsUWuVCho4A1S5r7" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">12:15</div>
+                <div class="item-body">
+                    <h3>第二站：午餐 ➔ 百年古家 大家 阿古豬</h3>
+                    <p>由水族館出發車程約 40 分鐘。在百年沖繩傳統老宅中享用美味阿古豬料理。</p>
+                    <div class="address-text">90 Nakayama, Nago, Okinawa 905-0004 日本 (電話：+81 980-53-0280)</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/VZVaivGwu6vnzSBy6" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="warning-card">
+                        🚨 <strong>【重要預約提醒】</strong> 預計於 <strong>2026年7月4日 (週六)</strong> 當天開放訂位，請務必記得提早線上預約！
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">14:30</div>
+                <div class="item-body">
+                    <h3>第三站：古宇利島大橋南端 駐車場</h3>
+                    <p>自餐廳出發車程約 25 分鐘。可在此免費停車，漫步沙灘，拍攝古宇利跨海大橋無敵海景。</p>
+                    <div class="address-text">Sumuide, Nago, Kunigami District, Okinawa 905-1635 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/HjJpRsjx6p3MojzXA" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">15:15</div>
+                <div class="item-body">
+                    <h3>第四站：點心 ➔ 古宇利蝦蝦飯</h3>
+                    <p>開車跨過大橋車程約 10 分鐘即可抵達。<strong>【注意：16:00 結束營業，量大建議提早分食】</strong></p>
+                    <div class="address-text">314 Kouri, Nakijin, Kunigami District, Okinawa 905-0406 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/5fcqtefd16Vhg6s9A" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">16:30</div>
+                <div class="item-body">
+                    <h3>第五站：晚餐 ➔ 永旺-名護店 (AEON)</h3>
+                    <p>由蝦蝦飯出發車程約 30 分鐘。大型購物商場，1 樓有著名的 Blue Seal 冰淇淋與運動用品專櫃，非常適合順便在此採買隔日早餐與伴手禮。</p>
+                    <div class="address-text">名護市字名護見取川原, 4472, Nago, Okinawa 905-0012 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/ZHKfWwS1eKWHCpPF9" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">備案</div>
+                <div class="item-body">
+                    <h3>(備案) 超市購買隔日早餐</h3>
+                    <p>若商場行程時間有變動，可改至此大型生鮮超市補貨。</p>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/dRuUATQwKiewDGk46" target="_blank" class="btn btn-link">🛒 導航 MaxValu Nago</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">19:30</div>
+                <div class="item-body">
+                    <h3>第六站：返回民宿</h3>
+                    <p>從名護市區出發開車約 30 分鐘回到包棟別墅放鬆休息。</p>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/7AUNifEnYwxjicec8" target="_blank" class="btn btn-map">🚗 返回民宿導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">宵夜</div>
+                <div class="item-body">
+                    <h3># 宵夜推薦 ➔ A&W名護店 (24小時營業)</h3>
+                    <p>由民宿開車僅約 15 分鐘。體驗沖繩限定的經典美式漢堡與麥根沙士！</p>
+                    <div class="address-text">55 Chome-16-12 Agarie, Nago, Okinawa 905-0021 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/us23ibnmZYVSpS3w8" target="_blank" class="btn btn-map">🍔 導航 A&W名護</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day3" class="day-section">
+            <div class="day-header-nav">
+                <h2>Day 3：7/26 (日) 海灘水上玩樂與萬座毛浪漫落日</h2>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">09:00</div>
+                <div class="item-body">
+                    <h3>第一站：水上活動體驗（喜璃愈志海灘內）</h3>
+                    <p>從民宿開車過去只需超近的 <strong>3 分鐘</strong> 車程！全家暢玩海島豐富的水上遊樂設施。</p>
+                    <div class="address-text">1996 Kise, Nago, Okinawa 905-0026 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/NarDjVtGx3uTvFoeA" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">12:00</div>
+                <div class="item-body">
+                    <h3>第二站：中餐 ➔ 金月そば 恩納店 (Kintiti Soba)</h3>
+                    <p>玩完水後來一碗沖繩在地特色自家製麵蕎麥麵。用餐後可回民宿稍作盥洗與午休。</p>
+                    <div class="address-text">8-3 Nakama, Onna, Kunigami District, Okinawa 904-0401 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/x1YNj4uxCGrFLhZJ8" target="_blank" class="btn btn-map">🚗 餐廳導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">15:00</div>
+                <div class="item-body">
+                    <h3>第三站：萬座毛風景區</h3>
+                    <p>開車約 15-20 分鐘。進入全新萬座毛周邊活性化設施，飽覽象鼻巨岩海景與遼闊草原。</p>
+                    <div class="address-text">日本〒904-0411 Okinawa, Kunigami District, Onna, 2767 万座毛周辺活性化施設內</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/wsoUYyia1s9FQETv6" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">16:30</div>
+                <div class="item-body">
+                    <h3>第四站：【二選一分流彈性行程】</h3>
+                    <p>👉 <strong>(行程-A) 恩納海濱公園 Nabee 海灘：</strong>踏水、吹海風，享受舒適的沙灘步道（亦可下水）。</p>
+                    <div class="btn-group" style="margin-bottom: 8px; margin-top: 4px;">
+                        <a href="https://maps.app.goo.gl/YTdvGUcgsw7ZpU3k7" target="_blank" class="btn btn-map">🚗 行程-A Nabee海灘導航</a>
+                    </div>
+                    <p>👉 <strong>(行程-B) ONNA 赤間野球場：</strong>驅車前往球場周邊大草皮散步走走、拍照留念。</p>
+                    <div class="btn-group" style="margin-top: 4px;">
+                        <a href="https://maps.app.goo.gl/zPXLgeAsQooaznhp9" target="_blank" class="btn btn-map">🚗 行程-B 野球場導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">19:00</div>
+                <div class="item-body">
+                    <h3>第五站：晚餐 ➔ 沖縄料理 しまぶた屋 恩納本店</h3>
+                    <p>沖繩極具人氣的阿古豬蒸籠料理與道地琉球家常菜。<strong>【現場排隊】</strong></p>
+                    <div class="address-text">6369-1 Onna, Kunigami District, Okinawa 904-0411 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/pKL6Bsv1Wins3YMF6" target="_blank" class="btn btn-map">🚗 餐廳導航</a>
+                        <a href="https://www.tylinnetravel.tw/okinawa-sinka-onna/" target="_blank" class="btn btn-link">🔗 部落格食記介紹</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">晚間</div>
+                <div class="item-body">
+                    <h3>第六站：返回民宿 ＆ 補貨</h3>
+                    <p>從餐廳開車約 15 分鐘回到民宿，途中可至超商購買隔天所需的早餐與飲料。</p>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/7AUNifEnYwxjicec8" target="_blank" class="btn btn-map">🚗 返回民宿</a>
+                        <a href="https://maps.app.goo.gl/broURwoJakPzDtyx9" target="_blank" class="btn btn-link">🏪 Lawson 導航</a>
+                        <a href="https://maps.app.goo.gl/iFJaoJ8XQocsRM8i7" target="_blank" class="btn btn-link">🏪 7-11 導航</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day4" class="day-section">
+            <div class="day-header-nav">
+                <h2>Day 4：7/27 (一) 沖繩文化體驗與那霸市區瘋狂購物</h2>
+                <a href="https://maps.app.goo.gl/LHofGUpvq7M3fLj88" target="_blank" class="btn-all-map">🌐 本日全行程串聯導航</a>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">09:30</div>
+                <div class="item-body">
+                    <h3>第一站：民宿退房 ➔ CAVE OKINAWA 神秘鍾乳洞</h3>
+                    <p>預計 10:00 前辦理完民宿退房。開車約 30 分鐘前往沖繩中部的神祕地底地景（09:00 開始營業）。</p>
+                    <div class="address-text">479-1 Ishikawa Kadekaru, Uruma, Okinawa 904-1114 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/Bptpib8SPGMgjssh6" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">11:00</div>
+                <div class="item-body">
+                    <h3>第二站：琉球村</h3>
+                    <p>由鍾乳洞出發車程約 10 分鐘。<strong>【彈性：時間來得及再去】</strong>體驗古民家傳統氛圍與觀賞熱鬧的太鼓舞演出。</p>
+                    <div class="address-text">1130 Yamada, Onna, Kunigami District, Okinawa 904-0416 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/YK45DcUjiDUCyVWs8" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">12:00</div>
+                <div class="item-body">
+                    <h3>第三站：午餐 ➔ 浜の家海鮮料理</h3>
+                    <p>車程約 10 分鐘。品嚐經典爆滿的黃油烤魚與各式超新鮮海鮮料理！</p>
+                    <div class="address-text">2097 Nakadomari, Onna, Kunigami District, Okinawa 904-0415 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/EYiZeuxYpQJD7k2r8" target="_blank" class="btn btn-map">🚗 餐廳導航</a>
+                        <a href="https://pfse64289.pixnet.net/blog/posts/15347028469" target="_blank" class="btn btn-link">🔗 部落格食記介紹</a>
+                    </div>
+                    <div class="info-card">
+                        ✅ <strong>【席位已預訂】</strong> 時間：<strong>12:00</strong> ｜ 人數：<strong>9位</strong> ｜ 訂位大名：<strong>Wang 桑</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">14:00</div>
+                <div class="item-body">
+                    <h3>第四站：星野集團 BANTA CAFE</h3>
+                    <p>由餐廳出發車程約 20 分鐘。座落於海崖上的絕美海景咖啡廳，除了下午茶外，下方有美麗沙灘可漫步踏水、撿貝殼放鬆。</p>
+                    <div class="address-text">560 Gima, Yomitan, Nakagami District, Okinawa 904-0327 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/KgZskyrR96YVrpwh9" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">16:30</div>
+                <div class="item-body">
+                    <h3>第五站：入住市區飯店 ➔ 壺川美之加納</h3>
+                    <p>自咖啡廳出發南下那霸市區，車程約 1 小時。辦理進房手續，全家稍作放鬆與午休。飯店周邊步行皆有公園、超商及超市。</p>
+                    <div class="address-text">2 Chome-1-3 Tsubogawa, Naha, Okinawa 900-0025 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/SY7KhjfD1NBGpp5v9" target="_blank" class="btn btn-map">🚗 飯店路線導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">18:30</div>
+                <div class="item-body">
+                    <h3>第六站：晚餐 ➔ 電車夜遊國際通商圈</h3>
+                    <p>從飯店出發步行約 5-10 分鐘至單軌電車【壺川站】，搭到【縣廳前站】即抵達熱鬧國際通，晚餐於此自由覓食。</p>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/TsqcRXXj5q3PuFcx7" target="_blank" class="btn btn-map">🚶‍♂️ 國際通步行導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">21:00</div>
+                <div class="item-body">
+                    <h3>第七站：深夜補貨 ➔ 唐吉訶德-那霸壺川店</h3>
+                    <p>從飯店直接<strong>步行約 10 分鐘</strong>就能抵達開在壺川當地的驚安殿堂，深夜方便瘋狂採購、藥妝補貨！</p>
+                    <div class="address-text">日本〒900-0025 Okinawa, Naha, Tsubogawa, 3 Chome−2番地1</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/w174JSZBn1wNbMjEA" target="_blank" class="btn btn-map">🚶‍♂️ 唐吉訶德步行導航</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="day5" class="day-section">
+            <div class="day-header-nav">
+                <h2>Day 5：7/28 (二) 市區彈性自由活動與平安返台</h2>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">上午</div>
+                <div class="item-body">
+                    <h3>第一站：全家輕鬆自由活動（完全彈性）</h3>
+                    <p>最後一天完全保留彈性。看爸爸媽媽有沒有想去但沒去到的地方，或者是想追加買什麼水果、伴手禮土產，再帶長輩前往採購。</p>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">13:30</div>
+                <div class="item-body">
+                    <h3>第二站：還車前重要任務 ➔ 將油箱加滿</h3>
+                    <p>導航至鄰近指定的加油站把油加滿。請務必妥善保留「加油明細收據」供還車時櫃檯人員檢查。</p>
+                    <div class="address-text">825-1 Gushi, Naha, Okinawa 901-0146 日本 (ENEOS Express Oroku Bypass)</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/UA8tYn7UUECfEEwe9" target="_blank" class="btn btn-map">🚗 導航至此加油站</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">14:00</div>
+                <div class="item-body">
+                    <h3>第三站：Budget-那霸機場店安全還車</h3>
+                    <p><strong>【注意：約莫 14:00 辦理還車】</strong>開回租車店點交。確認車況完畢後，全家直接搭乘租車公司的免費專屬接駁大巴前往那霸機場國際航廈。</p>
+                    <div class="address-text">3-2 Senaga, Tomigusuku, Okinawa 901-0233 日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/twXZdBqmBvvKYCH6A" target="_blank" class="btn btn-map">📍 租車店地圖位置</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">15:00</div>
+                <div class="item-body">
+                    <h3>第四站：機場會合辦理報到與登機</h3>
+                    <p>搭接駁車至機場，<strong>最晚於 15:00 前</strong>抵達那霸機場國際航廈碰面會合。班機將於 16:55 起飛平安返台！</p>
+                    <div class="warning-card">
+                        ✈️ <strong>【回程班機資訊】</strong> 亞洲航空 FD231 ｜ 那霸機場 16:55 出發 ➔ 桃園機場一航 17:30 抵達。
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
+    <footer>
+        <p>祝 宗民、宗平 全家人與爸爸媽媽 2026 沖繩夏日自駕假期平安、順心、大愉快！</p>
+        <p style="margin-top: 5px; opacity: 0.5;">© 家族自駕旅遊數位行程手冊網</p>
+    </footer>
+
     <script>
-        // 自動計算倒數天數
-        function setCountdown() {
-            var targetDate = new Date("2026/07/24 00:00:00").getTime();
-            var now = new Date().getTime();
-            var diff = targetDate - now;
-            
-            var days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-            
-            if (days > 0) {
-                document.getElementById("countdown-days").innerText = days;
-            } else if (days === 0) {
-                document.getElementById("countdown-box").innerHTML = "<span style='font-size: 1.4rem; color: #FDE68A; font-weight: bold;'>🎉 沖繩自駕之旅今天出發！出發吧！</span>";
-            } else {
-                document.getElementById("countdown-box").innerHTML = "<span style='font-size: 1.3rem; opacity: 0.9;'>🌊 沖繩夏日假期愉快進行中 / 已圓滿完成！</span>";
+        function changeDay(dayNum) {
+            for (var i = 1; i <= 5; i++) {
+                document.getElementById('day' + i).style.display = 'none';
+                document.getElementById('tab' + i).className = 'tab-btn';
             }
+            document.getElementById('day' + dayNum).style.display = 'block';
+            document.getElementById('tab' + dayNum).className = 'tab-btn active';
+            
+            document.getElementById('nav-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        setCountdown();
+
+        document.addEventListener("DOMContentLoaded", function() {
+            changeDay(1);
+        });
     </script>
 </body>
 </html>
