@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2026 沖繩夏日家族自駕之旅 - 完整手冊</title>
+    <title>2026 沖繩夏日家族自駕之旅 - 完整手冊 v0601</title>
     <style>
         :root {
             --primary: #0A3663;
@@ -209,6 +209,117 @@
             color: var(--primary);
         }
 
+        .weather-card {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%);
+            border: 1px solid #BFDBFE;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(10, 54, 99, 0.06);
+        }
+
+        .weather-card.weather-error {
+            background: #F8FAFC;
+            border-color: var(--border-color);
+        }
+
+        .weather-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .weather-main {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .weather-icon {
+            font-size: 2rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .weather-temp {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .weather-temp span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .weather-meta h3 {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 2px;
+        }
+
+        .weather-meta p {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .weather-badge {
+            flex-shrink: 0;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 50px;
+            background: var(--primary);
+            color: white;
+        }
+
+        .weather-badge.forecast {
+            background: var(--secondary);
+        }
+
+        .weather-badge.reference {
+            background: #94A3B8;
+        }
+
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .weather-stat {
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 6px;
+            padding: 6px 4px;
+            text-align: center;
+        }
+
+        .weather-stat .label {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+
+        .weather-stat .value {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .weather-loading {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+            padding: 6px 0;
+        }
+
         .item-row {
             display: flex;
             margin-bottom: 12px;
@@ -327,6 +438,9 @@
             .address-text { font-size: 0.72rem; }
             .btn { font-size: 0.72rem; padding: 4px 6px; }
             .pnr-box { font-size: 0.8rem; }
+            .weather-grid { grid-template-columns: repeat(2, 1fr); }
+            .weather-temp { font-size: 1.5rem; }
+            .weather-icon { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -439,6 +553,7 @@
         </div>
 
         <div id="day1" class="day-section">
+            <div class="weather-card" id="weather-day-1" aria-live="polite"><div class="weather-loading">🌤 載入天氣中…</div></div>
             <div class="day-header-nav">
                 <h2>Day 1：7/24 (五) 抵達・取車・前往恩納民宿</h2>
                 <a href="https://maps.app.goo.gl/hedcSd3FFGG65jTr6" target="_blank" class="btn-all-map">🌐 本日全行程串聯導航</a>
@@ -460,6 +575,9 @@
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/twXZdBqmBvvKYCH6A" target="_blank" class="btn btn-map">📍 租車店地圖</a>
                     </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 取還車 <strong>08:00～20:00</strong> ｜ 機場接駁 <strong>08:30～20:00</strong>
+                    </div>
                 </div>
             </div>
 
@@ -467,10 +585,13 @@
                 <div class="item-time">18:45</div>
                 <div class="item-body">
                     <h3>第二站：晚餐 ➔ SAN-A 浦添西海岸 PARCO CITY</h3>
-                    <p>自取車店出發車程約 45 分鐘。大型海濱購物中心，備有眾多美食餐廳選擇。<strong>【注意：22:00 閉店】</strong></p>
+                    <p>自取車店出發車程約 45 分鐘。大型海濱購物中心，備有眾多美食餐廳選擇。</p>
                     <div class="address-text">PARCO CITY, 3 Chome-1-1 Irijima, Urasoe, Okinawa 901-2123 日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/KJburRfWguBv8DrBA" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 店舖 <strong>10:00～22:00</strong> ｜ 餐廳 <strong>11:00～23:00</strong> ｜ 超市 <strong>9:00～23:00</strong>
                     </div>
                 </div>
             </div>
@@ -501,6 +622,7 @@
         </div>
 
         <div id="day2" class="day-section">
+            <div class="weather-card" id="weather-day-2" aria-live="polite"><div class="weather-loading">🌤 載入天氣中…</div></div>
             <div class="day-header-nav">
                 <h2>Day 2：7/25 (六) 美麗海水族館與北部秘境巡禮</h2>
                 <a href="https://maps.app.goo.gl/vZauvg711PDtty6s7" target="_blank" class="btn-all-map">🌐 本日全行程串聯導航</a>
@@ -514,6 +636,12 @@
                     <div class="address-text">424 Ishikawa, Motobu, Kunigami District, Okinawa 905-0206 日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/fCsUWuVCho4A1S5r7" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>08:30～20:00</strong>（最後入場 19:00）｜ 建議停留 2～3 小時
+                    </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🎫 <strong>【門票參考】</strong> 大人 2,180 日圓 ｜ 高中生 1,440 日圓 ｜ 小中学生 720 日圓 ｜ 未滿 6 歲免費
                     </div>
                 </div>
             </div>
@@ -530,6 +658,9 @@
                     <div class="warning-card">
                         🚨 <strong>【重要預約提醒】</strong> 預計於 <strong>2026年7月4日 (週六)</strong> 當天開放訂位，請務必記得提早線上預約！
                     </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🕐 <strong>【營業時間】</strong> 午餐 <strong>11:30～15:00</strong> ｜ 晚餐 <strong>17:30～22:00</strong> ｜ 週三定休
+                    </div>
                 </div>
             </div>
 
@@ -542,6 +673,12 @@
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/HjJpRsjx6p3MojzXA" target="_blank" class="btn btn-map">🚗 路線導航</a>
                     </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 全天開放 ｜ 建議白天前往
+                    </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🎫 <strong>【門票參考】</strong> 停車<strong>免費</strong>
+                    </div>
                 </div>
             </div>
 
@@ -549,10 +686,13 @@
                 <div class="item-time">15:15</div>
                 <div class="item-body">
                     <h3>第四站：點心 ➔ 古宇利蝦蝦飯</h3>
-                    <p>開車跨過大橋車程約 10 分鐘即可抵達。<strong>【注意：16:00 結束營業，量大建議提早分食】</strong></p>
+                    <p>開車跨過大橋車程約 10 分鐘即可抵達。量大建議提早分食。</p>
                     <div class="address-text">314 Kouri, Nakijin, Kunigami District, Okinawa 905-0406 日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/5fcqtefd16Vhg6s9A" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>11:00～16:00</strong>（售完為止）｜ 建議 15:15 前抵達
                     </div>
                 </div>
             </div>
@@ -566,6 +706,9 @@
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/ZHKfWwS1eKWHCpPF9" target="_blank" class="btn btn-map">🚗 路線導航</a>
                     </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 商場 <strong>9:00～22:00</strong> ｜ 1F 超市・藥妝至 <strong>23:00</strong>
+                    </div>
                 </div>
             </div>
 
@@ -576,6 +719,9 @@
                     <p>若商場行程時間有變動，可改至此大型生鮮超市補貨。</p>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/dRuUATQwKiewDGk46" target="_blank" class="btn btn-link">🛒 導航 MaxValu Nago</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>9:00～23:00</strong>
                     </div>
                 </div>
             </div>
@@ -600,11 +746,15 @@
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/us23ibnmZYVSpS3w8" target="_blank" class="btn btn-map">🍔 導航 A&W名護</a>
                     </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>24 小時營業</strong>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="day3" class="day-section">
+            <div class="weather-card" id="weather-day-3" aria-live="polite"><div class="weather-loading">🌤 載入天氣中…</div></div>
             <div class="day-header-nav">
                 <h2>Day 3：7/26 (日) 海灘水上玩樂與萬座毛浪漫落日</h2>
             </div>
@@ -613,14 +763,18 @@
                 <div class="item-time">09:00</div>
                 <div class="item-body">
                     <h3>第一站：海中展望塔+玻璃船：部瀨名海中公園</h3>
-                    <p>從民宿開車過去只需 <strong>5 分鐘</strong> 車程！</p>
-					<p>🚨 <strong>現場現金購票；套票(海中展望塔+玻璃船)成人2,100日圓/小孩1,050日圓。</p>
+                    <p>從民宿開車過去只需 <strong>5 分鐘</strong> 車程！2 個行程結束後，現場可玩水，再回民宿稍作整理，或直接去餐廳亦可。</p>
                     <div class="address-text">1744-1 Kise, Nago, Okinawa 905-0026日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/TTVEdMrGUgVNAo1f8" target="_blank" class="btn btn-map">🚗 路線導航</a>
-						<a href="https://www.busena-marinepark.com/chinese_t/boat.html" target="_blank" class="btn btn-link">🔗 前一天注意官網公告</a>
-						<a href="https://lailai-web.com/busena-marine-park/" target="_blank" class="btn btn-link">🔗 部落格介紹</a>
-					<p>👉 <strong>2個行程結束，現場可玩水，再回民宿稍作整理，或直接去餐廳亦可。</p>
+                        <a href="https://www.busena-marinepark.com/chinese_t/boat.html" target="_blank" class="btn btn-link">🔗 官網・當日公告</a>
+                        <a href="https://lailai-web.com/busena-marine-park/" target="_blank" class="btn btn-link">🔗 部落格介紹</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>09:00～17:30</strong>（最後搭船約 17:00）｜ 依海象可能停航，出發前請確認官網
+                    </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🎫 <strong>【門票參考】</strong> 展望塔+玻璃船套票 大人 2,100 日圓 ｜ 小孩（4～15 歲）1,050 日圓 ｜ <strong>現場現金購票</strong>
                     </div>
                 </div>
             </div>
@@ -634,6 +788,9 @@
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/x1YNj4uxCGrFLhZJ8" target="_blank" class="btn btn-map">🚗 餐廳導航</a>
                     </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>11:00～15:00</strong>／<strong>17:00～21:00</strong> ｜ 週三定休
+                    </div>
                 </div>
             </div>
 
@@ -645,6 +802,12 @@
                     <div class="address-text">日本〒904-0411 Okinawa, Kunigami District, Onna, 2767 万座毛周辺活性化施設內</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/wsoUYyia1s9FQETv6" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 園區 <strong>08:00～19:00</strong>（展望台・賣店）
+                    </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🎫 <strong>【門票參考】</strong> 入場<strong>免費</strong> ｜ 停車約 400 日圓
                     </div>
                 </div>
             </div>
@@ -661,6 +824,9 @@
                     <div class="btn-group" style="margin-top: 4px;">
                         <a href="https://maps.app.goo.gl/zPXLgeAsQooaznhp9" target="_blank" class="btn btn-map">🚗 行程-B 野球場導航</a>
                     </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 行程-A 海濱公園 <strong>8:30～18:00</strong> ｜ 行程-B 球場周邊<strong>全天開放</strong>
+                    </div>
                 </div>
             </div>
 
@@ -668,11 +834,14 @@
                 <div class="item-time">19:00</div>
                 <div class="item-body">
                     <h3>第五站：晚餐 ➔ 沖縄料理 しまぶた屋 恩納本店</h3>
-                    <p>沖繩極具人氣的阿古豬蒸籠料理與道地琉球家常菜。<strong>【現場排隊】</strong></p>
+                    <p>沖繩極具人氣的阿古豬蒸籠料理與道地琉球家常菜。</p>
                     <div class="address-text">6369-1 Onna, Kunigami District, Okinawa 904-0411 日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/pKL6Bsv1Wins3YMF6" target="_blank" class="btn btn-map">🚗 餐廳導航</a>
                         <a href="https://www.tylinnetravel.tw/okinawa-sinka-onna/" target="_blank" class="btn btn-link">🔗 部落格食記介紹</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>11:00～22:00</strong>（LO 21:00）｜ <strong>現場排隊・無預約</strong>
                     </div>
                 </div>
             </div>
@@ -692,6 +861,7 @@
         </div>
 
         <div id="day4" class="day-section">
+            <div class="weather-card" id="weather-day-4" aria-live="polite"><div class="weather-loading">🌤 載入天氣中…</div></div>
             <div class="day-header-nav">
                 <h2>Day 4：7/27 (一) 沖繩文化體驗與那霸市區瘋狂購物</h2>
                 <a href="https://maps.app.goo.gl/LHofGUpvq7M3fLj88" target="_blank" class="btn-all-map">🌐 本日全行程串聯導航</a>
@@ -706,6 +876,12 @@
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/Bptpib8SPGMgjssh6" target="_blank" class="btn btn-map">🚗 路線導航</a>
                     </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>10:00～18:00</strong>（最後入場 17:00）
+                    </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🎫 <strong>【門票參考】</strong> 大人 1,100 日圓 ｜ 中高生 900 日圓 ｜ 小學生 550 日圓 ｜ 4 歲以下免費
+                    </div>
                 </div>
             </div>
 
@@ -717,6 +893,12 @@
                     <div class="address-text">1130 Yamada, Onna, Kunigami District, Okinawa 904-0416 日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/YK45DcUjiDUCyVWs8" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>09:00～17:30</strong>（最後入場 17:00）｜ 太鼓舞等表演時段請見現場公告
+                    </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🎫 <strong>【門票參考】</strong> 大人 1,500 日圓 ｜ 小中学生 750 日圓 ｜ 4 歲以下免費
                     </div>
                 </div>
             </div>
@@ -734,6 +916,9 @@
                     <div class="info-card">
                         ✅ <strong>【席位已預訂】</strong> 時間：<strong>12:00</strong> ｜ 人數：<strong>9位</strong> ｜ 訂位大名：<strong>Wang 桑</strong>
                     </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🕐 <strong>【營業時間】</strong> 午餐 <strong>11:00～15:00</strong> ｜ 晚餐 <strong>17:00～22:00</strong>
+                    </div>
                 </div>
             </div>
 
@@ -745,6 +930,23 @@
                     <div class="address-text">560 Gima, Yomitan, Nakagami District, Okinawa 904-0327 日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/KgZskyrR96YVrpwh9" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 咖啡廳 <strong>10:00～21:00</strong>（時段制）｜ 下方沙灘可自由踏浪
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">(MAX)</div>
+                <div class="item-body">
+                    <h3>Sports Depo Ameku_スポーツデポ フラッグシップストア天久店</h3>
+                    <div class="address-text">1 Chome-2-1 Ameku, Naha, Okinawa 900-0005日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/goo6FuBXwBz2D3D88" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】 10:00～21:00</strong>
                     </div>
                 </div>
             </div>
@@ -760,7 +962,19 @@
                     </div>
                 </div>
             </div>
-
+			
+            <div class="item-row">
+                <div class="item-time">17:30</div>
+                <div class="item-body">
+                    <h3>第六站：晚餐 ➔ SAN-A 那霸 Main Place-和風亭(1F)</h3>
+                    <p>採購伴手禮/特色紀念品/玩具店(2F)/GLOBAL WORK(2F)/ABC MART(2F)/3COINS+plus(1F)。回程如尚有體力，可繞去熱鬧國際通散步。</p>
+					<div class="address-text">4 Chome-4-9 Omoromachi, Naha, Okinawa 900-0006日本</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/LRLh9xRsNDbRWfV37" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                    </div>
+                </div>
+            </div>	
+<!--
             <div class="item-row">
                 <div class="item-time">18:30</div>
                 <div class="item-body">
@@ -771,37 +985,64 @@
                     </div>
                 </div>
             </div>
+-->
 
             <div class="item-row">
-                <div class="item-time">21:00</div>
+                <div class="item-time">22:00</div>
                 <div class="item-body">
-                    <h3>第七站：深夜補貨 ➔ 唐吉訶德-那霸壺川店</h3>
+                    <h3>第七站：返回民宿</h3>
+                    <p>回到民宿整頓行李休息。</p>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/SY7KhjfD1NBGpp5v9" target="_blank" class="btn btn-map">🚗 返回民宿導航</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-row">
+                <div class="item-time">深夜逛街</div>
+                <div class="item-body">
+                    <h3>唐吉訶德-那霸壺川店</h3>
                     <p>從飯店直接<strong>步行約 10 分鐘</strong>就能抵達開在壺川當地的驚安殿堂，深夜方便瘋狂採購、藥妝補貨！</p>
                     <div class="address-text">日本〒900-0025 Okinawa, Naha, Tsubogawa, 3 Chome−2番地1</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/w174JSZBn1wNbMjEA" target="_blank" class="btn btn-map">🚶‍♂️ 唐吉訶德步行導航</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> <strong>24 小時營業</strong>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="day5" class="day-section">
+            <div class="weather-card" id="weather-day-5" aria-live="polite"><div class="weather-loading">🌤 載入天氣中…</div></div>
             <div class="day-header-nav">
                 <h2>Day 5：7/28 (二) 市區彈性自由活動與平安返台</h2>
             </div>
 
             <div class="item-row">
-                <div class="item-time">上午</div>
+                <div class="item-time">09:30</div>
                 <div class="item-body">
-                    <h3>第一站：全家輕鬆自由活動（完全彈性）</h3>
-                    <p>最後一天完全保留彈性。看爸爸媽媽有沒有想去但沒去到的地方，或者是想追加買什麼水果、伴手禮土產，再帶長輩前往採購。</p>
+                    <h3>DMM KARIYUSHI 水族館（iias 沖繩豐崎）</h3>
+                    <p>自壺川飯店出發車程約 15～20 分鐘。位於「iias 沖繩豐崎」購物中心 2 樓，結合聲光影像與生態展示，可近距離體驗水獺、樹懶等互動；同棟尚有 GU、UNIQLO、BIC Camera 等，適合親子分組行動。<strong>【注意：18:00 最後入場 · 建議 12:30 前離開趕還車】</strong></p>
+                    <div class="address-text">3-35 Toyosaki, Tomigusuku, Okinawa 901-0225 日本（Map Code：232 543 400*25）</div>
+                    <div class="btn-group">
+                        <a href="https://maps.app.goo.gl/zVbXbMWw3w3Jr7Lz8" target="_blank" class="btn btn-map">🚗 路線導航</a>
+                        <a href="https://www.gltjp.com/zh-hant/article/item/21032/#zh-9-87" target="_blank" class="btn btn-link">🔗 介紹</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 水族館 <strong>09:00～19:00</strong>（最後入場 18:00）｜ 互動廣場 tetote <strong>10:00～18:00</strong>（最後入場 17:30）｜ 建議停留約 1.5～2 小時
+                    </div>
+                    <div class="info-card" style="margin-top: 6px;">
+                        🎫 <strong>【門票參考】</strong> 大人 2,800～3,200 日圓 ｜ 國高中生 2,200～2,600 日圓 ｜ 兒童（4～12 歲）1,700～2,100 日圓 ｜ 3 歲以下免費 ｜ 購物中心附設<strong>免費停車場</strong>
+                    </div>
                 </div>
             </div>
 
             <div class="item-row">
                 <div class="item-time">13:30</div>
                 <div class="item-body">
-                    <h3>第二站：還車前重要任務 ➔ 將油箱加滿</h3>
+                    <h3>還車前重要任務 ➔ 將油箱加滿</h3>
                     <p>導航至鄰近指定的加油站把油加滿。請務必妥善保留「加油明細收據」供還車時櫃檯人員檢查。</p>
                     <div class="address-text">825-1 Gushi, Naha, Okinawa 901-0146 日本 (ENEOS Express Oroku Bypass)</div>
                     <div class="btn-group">
@@ -813,11 +1054,14 @@
             <div class="item-row">
                 <div class="item-time">14:00</div>
                 <div class="item-body">
-                    <h3>第三站：Budget-那霸機場店安全還車</h3>
+                    <h3>Budget-那霸機場店安全還車</h3>
                     <p><strong>【注意：約莫 14:00 辦理還車】</strong>開回租車店點交。確認車況完畢後，全家直接搭乘租車公司的免費專屬接駁大巴前往那霸機場國際航廈。</p>
                     <div class="address-text">3-2 Senaga, Tomigusuku, Okinawa 901-0233 日本</div>
                     <div class="btn-group">
                         <a href="https://maps.app.goo.gl/twXZdBqmBvvKYCH6A" target="_blank" class="btn btn-map">📍 租車店地圖位置</a>
+                    </div>
+                    <div class="info-card">
+                        🕐 <strong>【營業時間】</strong> 還車 <strong>08:00～20:00</strong> ｜ 末班機場接駁約 <strong>19:30</strong>
                     </div>
                 </div>
             </div>
@@ -825,7 +1069,7 @@
             <div class="item-row">
                 <div class="item-time">15:00</div>
                 <div class="item-body">
-                    <h3>第四站：機場會合辦理報到與登機</h3>
+                    <h3>機場會合辦理報到與登機</h3>
                     <p>搭接駁車至機場，<strong>最晚於 15:00 前</strong>抵達那霸機場國際航廈碰面會合。班機將於 16:55 起飛平安返台！</p>
                     <div class="warning-card">
                         ✈️ <strong>【回程班機資訊】</strong> 亞洲航空 FD231 ｜ 那霸機場 16:55 出發 ➔ 桃園機場一航 17:30 抵達。
@@ -838,10 +1082,279 @@
 
     <footer>
         <p>2026 沖繩夏日自駕假期</p>
-        <p style="margin-top: 5px; opacity: 0.5;">© 家族自駕旅遊數位行程</p>
+        <p style="margin-top: 5px; opacity: 0.5;">© 家族自駕旅遊數位行程 · v0601（含每日天氣）</p>
     </footer>
 
     <script>
+        var WEATHER_DAYS = {
+            1: { lat: 26.195, lon: 127.646, date: '2026-07-24', place: '那霸機場（抵達・取車）' },
+            2: { lat: 26.592, lon: 127.977, date: '2026-07-25', place: '名護・北部（水族館・古宇利）' },
+            3: { lat: 26.436, lon: 127.823, date: '2026-07-26', place: '恩納村（部瀬名・萬座毛）' },
+            4: { lat: 26.212, lon: 127.679, date: '2026-07-27', place: '那霸市區（壺川）' },
+            5: { lat: 26.195, lon: 127.646, date: '2026-07-28', place: '那霸機場周邊' }
+        };
+
+        var weatherCache = {};
+
+        function getTokyoDateString() {
+            return new Intl.DateTimeFormat('en-CA', {
+                timeZone: 'Asia/Tokyo',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }).format(new Date());
+        }
+
+        function daysUntil(dateStr) {
+            var today = new Date(getTokyoDateString() + 'T00:00:00');
+            var target = new Date(dateStr + 'T00:00:00');
+            return Math.round((target - today) / 86400000);
+        }
+
+        function formatTripDate(dateStr) {
+            var parts = dateStr.split('-');
+            var d = new Date(dateStr + 'T00:00:00');
+            var weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+            return parseInt(parts[1], 10) + '/' + parseInt(parts[2], 10) + ' (週' + weekdays[d.getDay()] + ')';
+        }
+
+        function weatherInfo(code) {
+            var map = {
+                0: { icon: '☀️', text: '晴朗' },
+                1: { icon: '🌤', text: '大致晴朗' },
+                2: { icon: '⛅', text: '多雲' },
+                3: { icon: '☁️', text: '陰天' },
+                45: { icon: '🌫', text: '霧' },
+                48: { icon: '🌫', text: '霧凇' },
+                51: { icon: '🌦', text: '小毛毛雨' },
+                53: { icon: '🌦', text: '毛毛雨' },
+                55: { icon: '🌧', text: '大毛毛雨' },
+                61: { icon: '🌧', text: '小雨' },
+                63: { icon: '🌧', text: '中雨' },
+                65: { icon: '🌧', text: '大雨' },
+                71: { icon: '🌨', text: '小雪' },
+                73: { icon: '🌨', text: '中雪' },
+                75: { icon: '🌨', text: '大雪' },
+                80: { icon: '🌦', text: '陣雨' },
+                81: { icon: '🌧', text: '中陣雨' },
+                82: { icon: '⛈', text: '強陣雨' },
+                95: { icon: '⛈', text: '雷雨' },
+                96: { icon: '⛈', text: '雷雨伴冰雹' },
+                99: { icon: '⛈', text: '強雷雨伴冰雹' }
+            };
+            return map[code] || { icon: '🌡', text: '—' };
+        }
+
+        function roundNum(n, digits) {
+            if (n === null || n === undefined || isNaN(n)) return '—';
+            return Number(n).toFixed(digits === undefined ? 0 : digits);
+        }
+
+        function getHourlyIndex(hourlyTimes, currentTime) {
+            if (!hourlyTimes || !hourlyTimes.length || !currentTime) return -1;
+            var idx = hourlyTimes.indexOf(currentTime);
+            if (idx >= 0) return idx;
+            var hourPrefix = currentTime.slice(0, 13);
+            for (var i = 0; i < hourlyTimes.length; i++) {
+                if (hourlyTimes[i].slice(0, 13) === hourPrefix) return i;
+            }
+            return -1;
+        }
+
+        function formatPrecipProb(prob, precipitation, weatherCode) {
+            if (prob !== null && prob !== undefined && !isNaN(prob)) {
+                return roundNum(prob) + '%';
+            }
+            if ((precipitation !== null && precipitation !== undefined && precipitation > 0) ||
+                (weatherCode >= 51 && weatherCode <= 67) || weatherCode >= 80) {
+                return '進行中';
+            }
+            return '—';
+        }
+
+        function renderWeatherCard(dayNum, data) {
+            var el = document.getElementById('weather-day-' + dayNum);
+            if (!el) return;
+
+            var info = weatherInfo(data.code);
+            var badgeClass = 'weather-badge';
+            if (data.mode === 'forecast') badgeClass += ' forecast';
+            else if (data.mode === 'reference') badgeClass += ' reference';
+
+            var tempHtml = data.tempMax !== undefined
+                ? roundNum(data.tempMin) + '° <span>~</span> ' + roundNum(data.tempMax) + '°'
+                : roundNum(data.temp) + '°';
+
+            el.className = 'weather-card';
+            el.innerHTML =
+                '<div class="weather-top">' +
+                    '<div class="weather-main">' +
+                        '<div class="weather-icon" aria-hidden="true">' + info.icon + '</div>' +
+                        '<div class="weather-meta">' +
+                            '<h3>' + info.text + ' · ' + WEATHER_DAYS[dayNum].place + '</h3>' +
+                            '<p>' + data.subtitle + '</p>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div style="text-align:right;">' +
+                        '<div class="weather-temp">' + tempHtml + '</div>' +
+                        '<span class="' + badgeClass + '">' + data.badge + '</span>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="weather-grid">' +
+                    statCell('體感', data.feelsLike !== undefined ? roundNum(data.feelsLike) + '°C' : '—') +
+                    statCell('濕度', data.humidity !== undefined ? roundNum(data.humidity) + '%' : '—') +
+                    statCell('降雨機率', formatPrecipProb(data.precipProb, data.precipitation, data.code)) +
+                    statCell('風速', data.wind !== undefined ? roundNum(data.wind, 1) + ' km/h' : '—') +
+                '</div>';
+        }
+
+        function statCell(label, value) {
+            return '<div class="weather-stat"><span class="label">' + label + '</span><span class="value">' + value + '</span></div>';
+        }
+
+        function showWeatherError(dayNum, message) {
+            var el = document.getElementById('weather-day-' + dayNum);
+            if (!el) return;
+            el.className = 'weather-card weather-error';
+            el.innerHTML = '<div class="weather-loading">' + message + '</div>';
+        }
+
+        function fetchJson(url) {
+            return fetch(url).then(function(res) {
+                if (!res.ok) throw new Error('network');
+                return res.json();
+            });
+        }
+
+        function loadLiveWeather(dayNum, cfg) {
+            var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + cfg.lat +
+                '&longitude=' + cfg.lon +
+                '&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m' +
+                '&hourly=precipitation_probability' +
+                '&timezone=Asia%2FTokyo&forecast_days=1';
+
+            return fetchJson(url).then(function(json) {
+                var c = json.current;
+                var hourIdx = getHourlyIndex(json.hourly.time, c.time);
+                var precipProb = hourIdx >= 0 ? json.hourly.precipitation_probability[hourIdx] : null;
+                renderWeatherCard(dayNum, {
+                    mode: 'live',
+                    badge: '即時',
+                    subtitle: '今日即時 · 沖繩時間 ' + c.time.replace('T', ' '),
+                    code: c.weather_code,
+                    temp: c.temperature_2m,
+                    feelsLike: c.apparent_temperature,
+                    humidity: c.relative_humidity_2m,
+                    precipProb: precipProb,
+                    precipitation: c.precipitation,
+                    wind: c.wind_speed_10m
+                });
+                weatherCache[dayNum] = { ts: Date.now(), mode: 'live' };
+            });
+        }
+
+        function loadForecastWeather(dayNum, cfg) {
+            var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + cfg.lat +
+                '&longitude=' + cfg.lon +
+                '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,wind_speed_10m_max,relative_humidity_2m_mean' +
+                '&timezone=Asia%2FTokyo&start_date=' + cfg.date + '&end_date=' + cfg.date;
+
+            return fetchJson(url).then(function(json) {
+                var d = json.daily;
+                if (!d || !d.time || !d.time.length) throw new Error('no data');
+                renderWeatherCard(dayNum, {
+                    mode: 'forecast',
+                    badge: '預報',
+                    subtitle: formatTripDate(cfg.date) + ' 行程日預報 · ' + cfg.place,
+                    code: d.weather_code[0],
+                    tempMin: d.temperature_2m_min[0],
+                    tempMax: d.temperature_2m_max[0],
+                    feelsLike: undefined,
+                    humidity: d.relative_humidity_2m_mean[0],
+                    precipProb: d.precipitation_probability_max[0],
+                    wind: d.wind_speed_10m_max[0]
+                });
+                weatherCache[dayNum] = { ts: Date.now(), mode: 'forecast' };
+            });
+        }
+
+        function loadReferenceWeather(dayNum, cfg, daysLeft) {
+            var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + cfg.lat +
+                '&longitude=' + cfg.lon +
+                '&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m' +
+                '&hourly=precipitation_probability' +
+                '&timezone=Asia%2FTokyo&forecast_days=1';
+
+            return fetchJson(url).then(function(json) {
+                var c = json.current;
+                var hourIdx = getHourlyIndex(json.hourly.time, c.time);
+                var precipProb = hourIdx >= 0 ? json.hourly.precipitation_probability[hourIdx] : null;
+                renderWeatherCard(dayNum, {
+                    mode: 'reference',
+                    badge: '參考',
+                    subtitle: formatTripDate(cfg.date) + ' 尚距 ' + daysLeft + ' 天 · 以下為「' + cfg.place + '」目前天氣參考',
+                    code: c.weather_code,
+                    temp: c.temperature_2m,
+                    feelsLike: c.apparent_temperature,
+                    humidity: c.relative_humidity_2m,
+                    precipProb: precipProb,
+                    precipitation: c.precipitation,
+                    wind: c.wind_speed_10m
+                });
+                weatherCache[dayNum] = { ts: Date.now(), mode: 'reference' };
+            });
+        }
+
+        function loadWeather(dayNum) {
+            var cfg = WEATHER_DAYS[dayNum];
+            if (!cfg) return;
+
+            var cached = weatherCache[dayNum];
+            var today = getTokyoDateString();
+            var diff = daysUntil(cfg.date);
+            var isLiveDay = cfg.date === today;
+            var cacheMaxAge = isLiveDay ? 30 * 60 * 1000 : 6 * 60 * 60 * 1000;
+
+            if (cached && (Date.now() - cached.ts) < cacheMaxAge && cached.html) {
+                var elCached = document.getElementById('weather-day-' + dayNum);
+                if (elCached) {
+                    elCached.className = cached.className || 'weather-card';
+                    elCached.innerHTML = cached.html;
+                }
+                return;
+            }
+
+            var el = document.getElementById('weather-day-' + dayNum);
+            if (el) el.innerHTML = '<div class="weather-loading">🌤 載入天氣中…</div>';
+
+            var promise;
+            if (isLiveDay) {
+                promise = loadLiveWeather(dayNum, cfg);
+            } else if (diff > 0 && diff <= 16) {
+                promise = loadForecastWeather(dayNum, cfg).catch(function() {
+                    return loadReferenceWeather(dayNum, cfg, diff);
+                });
+            } else if (diff > 16) {
+                promise = loadReferenceWeather(dayNum, cfg, diff);
+            } else {
+                promise = loadForecastWeather(dayNum, cfg).catch(function() {
+                    showWeatherError(dayNum, '📅 行程日已過，無法顯示當日天氣');
+                });
+            }
+
+            promise.catch(function() {
+                showWeatherError(dayNum, '⚠️ 天氣資料暫時無法載入，請稍後再試');
+            }).then(function() {
+                var target = document.getElementById('weather-day-' + dayNum);
+                if (target && target.innerHTML.indexOf('weather-loading') === -1 && target.innerHTML.indexOf('⚠️') === -1) {
+                    weatherCache[dayNum] = weatherCache[dayNum] || {};
+                    weatherCache[dayNum].html = target.innerHTML;
+                    weatherCache[dayNum].className = target.className;
+                    weatherCache[dayNum].ts = Date.now();
+                }
+            });
+        }
+
         function changeDay(dayNum) {
             for (var i = 1; i <= 5; i++) {
                 document.getElementById('day' + i).style.display = 'none';
@@ -849,11 +1362,12 @@
             }
             document.getElementById('day' + dayNum).style.display = 'block';
             document.getElementById('tab' + dayNum).className = 'tab-btn active';
-            
+
+            loadWeather(dayNum);
             document.getElementById('nav-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener('DOMContentLoaded', function() {
             changeDay(1);
         });
     </script>
